@@ -1,6 +1,6 @@
 {
   "name": "filescan",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "recursive file scan as async generator",
   "main": "dist/index.js",
   "source": "src/index.js",
