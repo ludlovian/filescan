@@ -4,6 +4,12 @@ import test from 'ava'
 import filescan from '../src'
 import sinon from 'sinon'
 
+// foo/
+// foo/quux
+// foo/bar
+// foo/baz/
+// foo/baz/foobar
+//
 const fs = {
   lstat (path, cb) {
     let ret = {
@@ -26,8 +32,18 @@ test('basic function', async t => {
   const list = []
   const options = { path: 'foo', fs }
   for await (const item of filescan(options)) {
-    const { path, stats } = item
+    const { path, stats, files } = item
     t.is(stats.path, path)
+    switch (path) {
+      case 'foo':
+        t.deepEqual(files, ['bar', 'baz', 'quux'])
+        break
+      case 'foo/baz':
+        t.deepEqual(files, ['foobar'])
+        break
+      default:
+        t.is(files, undefined)
+    }
     list.push(path)
   }
   t.deepEqual(list, ['foo', 'foo/bar', 'foo/baz', 'foo/baz/foobar', 'foo/quux'])
@@ -68,4 +84,15 @@ test('with no fs', async t => {
   t.deepEqual(list, ['foo', 'foo/bar', 'foo/baz', 'foo/baz/foobar', 'foo/quux'])
 
   sinon.restore()
+})
+
+test('with depth', async t => {
+  const list = []
+  const options = { path: 'foo', fs, depth: true }
+  for await (const item of filescan(options)) {
+    const { path, stats } = item
+    t.is(stats.path, path)
+    list.push(path)
+  }
+  t.deepEqual(list, ['foo/bar', 'foo/baz/foobar', 'foo/baz', 'foo/quux', 'foo'])
 })
