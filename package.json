@@ -4,7 +4,7 @@
   "description": "recursive file scan as async generator",
   "main": "dist/index.js",
   "source": "src/index.js",
-  "module": "src/index.mjs",
+  "module": "dist/index.mjs",
   "scripts": {
     "clean": "rm -rf dist/ node_modules/.cache/ .nyc_output/ coverage/",
     "format": "prettier-standard src/*.js test/*.js",
