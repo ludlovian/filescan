@@ -12,7 +12,7 @@ import sinon from 'sinon'
 //
 const fs = {
   lstat (path, cb) {
-    let ret = {
+    const ret = {
       path,
       isDirectory () {
         return path === 'foo' || path === 'foo/baz'
