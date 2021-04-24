@@ -1,0 +1,1 @@
+{"processes":{"05bdf07f-06fa-4a41-9489-872c0a571f9d":{"parent":null,"children":["fdd492c6-9cc9-4f97-ada0-c94f32708a35"]},"fdd492c6-9cc9-4f97-ada0-c94f32708a35":{"parent":"05bdf07f-06fa-4a41-9489-872c0a571f9d","children":[]}},"files":{"/home/alan/dev/filescan/src/index.js":["fdd492c6-9cc9-4f97-ada0-c94f32708a35"]},"externalIds":{}}

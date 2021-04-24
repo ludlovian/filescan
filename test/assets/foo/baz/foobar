@@ -1,0 +1,5 @@
+ 10880511      4 drwxrwxr-x   3 alan     alan         4096 Apr 24 15:07 foo/
+ 10880360      4 -rw-rw-r--   1 alan     alan          238 Apr 24 15:07 foo/quux
+ 10880506      4 -rw-rw-r--   1 alan     alan          318 Apr 24 15:07 foo/bar
+ 10880519      4 drwxrwxr-x   2 alan     alan         4096 Apr 24 15:07 foo/baz
+ 10880521      0 -rw-rw-r--   1 alan     alan            0 Apr 24 15:07 foo/baz/foobar
